@@ -6,6 +6,9 @@ export class EncryptedPDFError extends Error {
     const msg =
       'Input document to `PDFDocument.load` is encrypted. You can use `PDFDocument.load(..., { ignoreEncryption: true })` if you wish to load the document anyways.';
     super(msg);
+    this.name = new.target.name;
+    console.log(this.name)
+    Object.setPrototypeOf(this, EncryptedPDFError.prototype);
   }
 }
 
